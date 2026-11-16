@@ -1102,7 +1102,857 @@ a {
     font-size: 8px;
 }
 
-/* ===========================================
-=========================================== */
+
+/* =========================================
+   RESPONSIVE DESIGN
+   Tablet : 1024px 이하
+   Mobile : 600px 이하
+========================================= */
 
 
+/* =========================================
+   TABLET
+========================================= */
+
+@media screen and (max-width: 1024px) {
+
+    /* 공통 */
+    :root {
+        --page-padding: 24px;
+    }
+
+    .section {
+        min-height: 100svh;
+    }
+
+    /* HEADER */
+    .header {
+        padding: 14px 24px 0;
+    }
+
+    .section-indicator {
+        display: grid;
+        grid-template-columns: repeat(4, auto);
+        justify-content: space-between;
+        gap: 12px;
+    }
+
+    .indicator-track {
+        grid-column: 1 / -1;
+        width: 100%;
+    }
+
+    /* HOME */
+    .home-title {
+        right: 5%;
+    }
+
+    .home-title h1 {
+        font-size: clamp(100px, 15vw, 145px);
+    }
+
+
+    /* ABOUT */
+    .about {
+        display: grid;
+        grid-template-columns: 0.8fr 1.2fr;
+        grid-template-areas:
+            "heading heading"
+            "photo profile"
+            "details details"
+            "name name";
+
+        gap: 35px 28px;
+
+        min-height: auto;
+        padding: 90px 5% 55px;
+        overflow: visible;
+    }
+
+    .about-heading {
+        grid-area: heading;
+        position: relative;
+        min-height: 100px;
+    }
+
+    .about-heading .section-number {
+        position: static;
+        margin-bottom: 20px;
+    }
+
+    .about-heading h2 {
+        position: static;
+        font-size: clamp(65px, 9vw, 100px);
+        line-height: 0.8;
+    }
+
+    .about-photo {
+        grid-area: photo;
+        position: relative;
+        top: auto;
+        left: auto;
+        width: 100%;
+        align-self: start;
+    }
+
+    .profile-image {
+        width: 100%;
+    }
+
+    .about-profile {
+        grid-area: profile;
+        position: relative;
+        top: auto;
+        left: auto;
+        width: 100%;
+        margin: 0;
+        align-self: start;
+    }
+
+    .about-details {
+        grid-area: details;
+        position: relative;
+        top: auto;
+        right: auto;
+        width: 100%;
+
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 28px;
+    }
+
+    .mbti-block {
+        grid-column: 1 / -1;
+    }
+
+    .about-name-line {
+        grid-area: name;
+        position: relative;
+        inset: auto;
+        height: auto;
+        padding: 15px 0;
+        border-bottom: 1px solid var(--ink);
+        background: transparent;
+    }
+
+    .about-name {
+        position: static;
+        font-size: clamp(20px, 3vw, 30px);
+    }
+
+
+    /* SKILLS */
+    .skills {
+        display: flex;
+        flex-direction: column;
+        padding: 60px 0 0;
+        min-height: auto;
+        overflow: visible;
+    }
+
+    .skills-heading {
+        align-items: center;
+        padding: 0 20px 35px;
+    }
+
+    .skills-heading .section-number {
+        top: 30px;
+        left: 5%;
+    }
+
+    .skills-heading h2 {
+        margin: 65px 0 15px;
+        text-align: center;
+        font-size: clamp(55px, 8vw, 85px);
+        line-height: 0.78;
+    }
+
+    .skills-caption {
+        margin: 10px 0 0;
+        padding: 0;
+        white-space: normal;
+    }
+
+    .skills-panel {
+        width: 100%;
+        padding: 35px 5%;
+    }
+
+    .panel-top {
+        margin-top: 10px;
+    }
+
+    .skill-columns {
+        grid-template-columns: 1fr 1fr;
+        gap: 35px;
+        padding-left: 50px;
+    }
+
+    .skill-level {
+        width: 75px;
+    }
+
+    .panel-bottom {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        margin-top: 45px;
+    }
+
+    .panel-bottom > .skills-index,
+    .panel-bottom > h3,
+    .panel-bottom > .panel-description {
+        grid-column: auto;
+        grid-row: auto;
+    }
+
+    .panel-bottom > .skills-index:nth-child(9) {
+        border-left: 0;
+        padding-left: 0;
+        width: 35px;
+        margin-top: 25px;
+    }
+
+    .panel-bottom > h3,
+    .panel-bottom > .panel-description {
+        margin-left: 50px;
+    }
+
+    .how-row {
+        display: grid;
+        grid-template-columns: 120px minmax(0, 1fr);
+        gap: 12px;
+        margin: 0;
+    }
+
+    .how-row span,
+    .how-row p {
+        margin: 8px 0;
+        white-space: normal;
+    }
+
+    .tools-grid {
+        grid-column: auto;
+        grid-row: auto;
+        grid-template-columns: 1fr 1fr;
+        gap: 25px;
+        padding: 10px 0 0;
+    }
+
+
+    /* PROJECTS */
+    .projects {
+        min-height: 100svh;
+        padding: 80px 0 55px;
+        overflow: hidden;
+    }
+
+    .projects-heading {
+        height: auto;
+        margin: 0 5% 35px;
+    }
+
+    .projects-heading h2 {
+        font-size: clamp(65px, 10vw, 110px);
+    }
+
+    .projects-line {
+        top: 65px;
+        right: 15%;
+    }
+
+    .project-slider {
+        width: 96%;
+        grid-template-columns: 40px minmax(0, 1fr) 40px;
+        gap: 10px;
+    }
+
+    .project-card {
+        grid-template-columns: 1fr 0.8fr;
+        gap: 25px;
+        padding: 20px 10px;
+    }
+
+    .project-info h3 {
+        font-size: clamp(30px, 4vw, 45px);
+    }
+
+    .project-tech {
+        margin-bottom: 25px;
+    }
+
+    .slider-button {
+        width: 40px;
+        height: 40px;
+    }
+
+
+    /* FOOTER */
+    .footer {
+        padding: 25px 5% 15px;
+    }
+
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media screen and (max-width: 600px) {
+
+    /* 공통 */
+    :root {
+        --page-padding: 18px;
+    }
+
+    html {
+        scroll-snap-type: none;
+    }
+
+    body {
+        overflow-x: hidden;
+    }
+
+    .section {
+        min-height: 100svh;
+        scroll-snap-align: none;
+    }
+
+
+    /* HEADER */
+    .header {
+        padding: 12px 16px 0;
+    }
+
+    .section-indicator {
+        grid-template-columns: repeat(4, auto);
+        gap: 8px;
+        padding-bottom: 8px;
+    }
+
+    .indicator-link {
+        font-size: 9px;
+        letter-spacing: 0;
+        white-space: nowrap;
+    }
+
+    .indicator-track {
+        height: 2px;
+    }
+
+
+    /* HOME */
+    .home {
+        min-height: 100svh;
+        padding: 25px 18px 30px;
+    }
+
+    .home-top .eyebrow {
+        font-size: clamp(14px, 4vw, 19px);
+        line-height: 1.5;
+    }
+
+    .home-title {
+        top: 50%;
+        right: auto;
+        left: 50%;
+        width: 100%;
+        justify-content: center;
+        transform: translate(-50%, -50%);
+    }
+
+    .home-title h1 {
+        font-size: clamp(48px, 14vw, 82px);
+        line-height: 0.9;
+        letter-spacing: -0.08em;
+        writing-mode: horizontal-tb;
+        white-space: nowrap;
+    }
+
+    .home-name,
+    .home-account {
+        font-size: 16px;
+    }
+
+    .home-name {
+        letter-spacing: 0.2em;
+    }
+
+
+    /* ABOUT */
+    .about {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr);
+        grid-template-areas:
+            "heading"
+            "photo"
+            "name"
+            "profile"
+            "details";
+
+        gap: 28px;
+
+        min-height: auto;
+        padding: 75px 22px 45px;
+        overflow: visible;
+    }
+
+    .about-heading {
+        min-height: auto;
+    }
+
+    .about-heading .section-number {
+        font-size: 9px;
+        margin-bottom: 18px;
+    }
+
+    .about-heading h2 {
+        font-size: clamp(65px, 17vw, 90px);
+        line-height: 0.78;
+    }
+
+    .about-photo {
+        width: 75%;
+        max-width: 250px;
+        margin: 0 auto;
+    }
+
+    .photo-label {
+        top: 8px;
+        left: 9px;
+    }
+
+    .profile-image {
+        width: 100%;
+    }
+
+    .about-name-line {
+        padding: 12px 0;
+    }
+
+    .about-name {
+        font-size: clamp(18px, 5vw, 25px);
+        white-space: normal;
+    }
+
+    .about-profile {
+        width: 100%;
+    }
+
+    .profile-info h3,
+    .detail-block h3,
+    .mbti-block h3 {
+        font-size: 23px;
+        margin-bottom: 15px;
+    }
+
+    .profile-info h3 span,
+    .detail-block h3 span {
+        font-size: 22px;
+    }
+
+    .info-list {
+        grid-template-columns: 65px minmax(0, 1fr);
+        gap: 16px 10px;
+        font-size: 12px;
+        padding-bottom: 18px;
+    }
+
+    .profile-description {
+        padding-top: 18px;
+        font-size: 12px;
+        line-height: 1.9;
+    }
+
+    .profile-description p {
+        margin-bottom: 15px;
+    }
+
+    .about-details {
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+    }
+
+    .detail-block {
+        padding-bottom: 15px;
+    }
+
+    .detail-item {
+        grid-template-columns: 82px minmax(0, 1fr);
+        gap: 8px;
+        font-size: 12px;
+        line-height: 1.7;
+    }
+
+    .mbti-list {
+        grid-template-columns: repeat(4, minmax(0, 1fr)) 12px minmax(0, 1fr);
+        gap: 3px;
+    }
+
+    .mbti-item {
+        font-size: 11px;
+        gap: 6px;
+    }
+
+    .mbti-circle {
+        width: 42px;
+        border-width: 8px;
+        font-size: 13px;
+    }
+
+    .mbti-hyphen {
+        font-size: 16px;
+    }
+
+    .detail-caption {
+        font-size: 12px;
+        line-height: 1.7;
+    }
+
+
+    /* SKILLS */
+    .skills {
+        display: flex;
+        flex-direction: column;
+        padding-top: 55px;
+    }
+
+    .skills-heading {
+        padding: 0 18px 30px;
+    }
+
+    .skills-heading .section-number {
+        top: 25px;
+        left: 18px;
+        font-size: 9px;
+    }
+
+    .skills-heading h2 {
+        margin: 60px 0 12px;
+        font-size: clamp(52px, 15vw, 72px);
+        line-height: 0.76;
+    }
+
+    .skills-caption {
+        font-size: 12px;
+    }
+
+    .skills-panel {
+        padding: 28px 22px 35px;
+    }
+
+    .panel-top {
+        margin: 0 0 20px;
+    }
+
+    .skills-index {
+        font-size: 12px;
+    }
+
+    .skills-panel h3 {
+        font-size: 18px;
+    }
+
+    .panel-description {
+        font-size: 10px;
+    }
+
+    .skill-columns {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 0;
+        padding-left: 0;
+        margin-top: 15px;
+    }
+
+    .skill-list {
+        gap: 15px;
+        margin-top: 15px;
+    }
+
+    .skill-row {
+        font-size: 12px;
+        gap: 15px;
+    }
+
+    .skill-level {
+        width: 90px;
+    }
+
+    .panel-bottom {
+        margin-top: 35px;
+        gap: 10px;
+    }
+
+    .panel-bottom > .skills-index {
+        margin-top: 15px;
+    }
+
+    .panel-bottom > .skills-index:nth-child(9) {
+        margin-top: 30px;
+    }
+
+    .panel-bottom > h3,
+    .panel-bottom > .panel-description {
+        margin-left: 50px;
+    }
+
+    .how-row {
+        grid-template-columns: 95px minmax(0, 1fr);
+        gap: 8px;
+    }
+
+    .how-row span,
+    .how-row p {
+        font-size: 11px;
+        line-height: 1.7;
+        margin: 5px 0;
+    }
+
+    .tools-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 20px 12px;
+        padding-top: 15px;
+    }
+
+    .tool-item {
+        gap: 9px;
+    }
+
+    .tool-symbol {
+        width: 35px;
+        height: 35px;
+        font-size: 14px;
+    }
+
+    .tool-item strong {
+        font-size: 11px;
+        white-space: normal;
+        overflow-wrap: anywhere;
+    }
+
+    .tool-item small {
+        font-size: 10px;
+    }
+
+
+    /* PROJECTS */
+    .projects {
+        min-height: 100svh;
+        padding: 75px 0 40px;
+        justify-content: center;
+    }
+
+    .projects-heading {
+        height: auto;
+        margin: 0 20px 35px;
+    }
+
+    .projects-heading .section-number {
+        top: 8%;
+        left: 20px;
+        font-size: 9px;
+    }
+
+    .projects-heading h2 {
+        margin: 0;
+        font-size: clamp(48px, 13vw, 75px);
+        letter-spacing: -0.08em;
+    }
+
+    .projects-line {
+        top: 55px;
+        right: 10%;
+    }
+
+    .project-slider {
+        width: 100%;
+        grid-template-columns: 34px minmax(0, 1fr) 34px;
+        gap: 4px;
+        margin-top: 0;
+    }
+
+    .project-window {
+        min-width: 0;
+        width: 100%;
+        overflow: hidden;
+    }
+
+    .project-card {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 22px;
+        padding: 10px 5px;
+    }
+
+    .project-image {
+        width: 100%;
+        aspect-ratio: 16 / 10;
+    }
+
+    .image-placeholder span {
+        font-size: 11px;
+    }
+
+    .project-info {
+        width: 100%;
+        padding: 0 5px;
+    }
+
+    .project-number {
+        font-size: 10px;
+        margin-bottom: 12px;
+    }
+
+    .project-info h3 {
+        font-size: clamp(30px, 9vw, 43px);
+        margin-bottom: 12px;
+    }
+
+    .project-tech {
+        font-size: 11px;
+        margin-bottom: 20px;
+        line-height: 1.7;
+    }
+
+    .project-links {
+        flex-wrap: wrap;
+        gap: 18px;
+    }
+
+    .project-links a {
+        font-size: 10px;
+        padding-bottom: 5px;
+    }
+
+    .slider-button {
+        width: 32px;
+        height: 32px;
+        font-size: 16px;
+    }
+
+    .slider-pagination {
+        margin-top: 25px;
+        gap: 12px;
+    }
+
+    .current-slide,
+    .total-slides {
+        font-size: 10px;
+    }
+
+    .pagination-line {
+        width: 55px;
+    }
+
+
+    /* FOOTER */
+    .footer {
+        padding: 25px 20px 15px;
+    }
+
+    .footer-main {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 22px;
+        padding-bottom: 20px;
+    }
+
+    .footer-name {
+        font-size: 22px;
+    }
+
+    .footer-links {
+        gap: 18px;
+    }
+
+    .footer-links a {
+        font-size: 10px;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        gap: 8px;
+        font-size: 8px;
+    }
+
+}
+
+
+/* =========================================
+   SMALL MOBILE
+   380px 이하
+========================================= */
+
+@media screen and (max-width: 380px) {
+
+    .section-indicator {
+        gap: 5px;
+    }
+
+    .indicator-link {
+        font-size: 8px;
+    }
+
+    .home-title h1 {
+        font-size: 13vw;
+    }
+
+    .about {
+        padding-right: 17px;
+        padding-left: 17px;
+    }
+
+    .mbti-circle {
+        width: 36px;
+        border-width: 7px;
+    }
+
+    .skill-level {
+        width: 70px;
+    }
+
+    .tool-item {
+        gap: 7px;
+    }
+
+    .tool-symbol {
+        width: 30px;
+        height: 30px;
+        font-size: 12px;
+    }
+
+    .project-slider {
+        grid-template-columns: 30px minmax(0, 1fr) 30px;
+    }
+
+    .slider-button {
+        width: 28px;
+        height: 28px;
+    }
+
+}
+
+
+/* =========================================
+   ACCESSIBILITY
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+
+}
