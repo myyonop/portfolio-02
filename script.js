@@ -136,3 +136,36 @@ if (
     // 최초 실행
     updateSlider();
 }
+
+
+/* =========================================
+   04. 페이지별 등장 애니메이션
+========================================= */
+
+document.documentElement.classList.add("has-js");
+
+const animatedSections = document.querySelectorAll(
+    ".home, .about, .skills, .projects, .footer"
+);
+
+const animationObserver = new IntersectionObserver(
+    (entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("is-inview");
+            } else {
+                // 화면에서 벗어나면 초기화
+                // 다시 진입할 때 애니메이션 재생
+                entry.target.classList.remove("is-inview");
+            }
+        });
+    },
+    {
+        threshold: 0.15,
+        rootMargin: "-5% 0px -5% 0px"
+    }
+);
+
+animatedSections.forEach((section) => {
+    animationObserver.observe(section);
+});

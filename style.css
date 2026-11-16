@@ -1956,3 +1956,394 @@ a {
     }
 
 }
+
+
+/* =========================================
+   PAGE TRANSITION ANIMATIONS
+========================================= */
+
+
+/* 공통 애니메이션 */
+.home,
+.about,
+.skills,
+.projects,
+.footer {
+    --animation-duration: 0.9s;
+    --animation-easing: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+
+/* =========================================
+   01. HOME
+   타이틀 확대 + 텍스트 등장
+========================================= */
+
+.has-js .home .home-top,
+.has-js .home .home-bottom {
+    opacity: 0;
+    transition:
+        opacity 1s ease,
+        transform 1s var(--animation-easing);
+}
+
+.has-js .home .home-top {
+    transform: translateY(-20px);
+}
+
+.has-js .home .home-bottom {
+    transform: translateY(25px);
+}
+
+.has-js .home .home-title h1 {
+    opacity: 0;
+    transform: scale(0.92);
+    transition:
+        opacity 1.2s ease,
+        transform 1.4s var(--animation-easing);
+    transition-delay: 0.15s;
+}
+
+.home.is-inview .home-top,
+.home.is-inview .home-bottom {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.home.is-inview .home-title h1 {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.home.is-inview .home-bottom {
+    transition-delay: 0.45s;
+}
+
+
+/* =========================================
+   02. ABOUT
+   이미지 확대 + 정보 순차 등장
+========================================= */
+
+.has-js .about .about-photo {
+    opacity: 0;
+    transform: translateX(-35px);
+    transition:
+        opacity 1s ease,
+        transform 1.2s var(--animation-easing);
+}
+
+.has-js .about .about-heading h2 {
+    opacity: 0;
+    transform: translateY(35px);
+    transition:
+        opacity 0.9s ease,
+        transform 1s var(--animation-easing);
+    transition-delay: 0.15s;
+}
+
+.has-js .about .about-profile {
+    opacity: 0;
+    transform: translateY(30px);
+    transition:
+        opacity 1s ease,
+        transform 1s var(--animation-easing);
+    transition-delay: 0.3s;
+}
+
+.has-js .about .about-details {
+    opacity: 0;
+    transform: translateY(35px);
+    transition:
+        opacity 1s ease,
+        transform 1s var(--animation-easing);
+    transition-delay: 0.45s;
+}
+
+.has-js .about .about-name-line {
+    opacity: 0;
+    transition: opacity 1s ease;
+    transition-delay: 0.25s;
+}
+
+
+/* ABOUT 활성화 */
+.about.is-inview .about-photo,
+.about.is-inview .about-heading h2,
+.about.is-inview .about-profile,
+.about.is-inview .about-details {
+    opacity: 1;
+    transform: translate(0, 0);
+}
+
+.about.is-inview .about-name-line {
+    opacity: 1;
+}
+
+
+/* =========================================
+   03. SKILLS
+   제목과 패널이 서로 다른 방향에서 등장
+========================================= */
+
+.has-js .skills .skills-heading {
+    opacity: 0;
+    transform: translateX(-35px);
+    transition:
+        opacity 1s ease,
+        transform 1.1s var(--animation-easing);
+}
+
+.has-js .skills .skills-panel {
+    opacity: 0;
+    transform: translateX(40px);
+    transition:
+        opacity 1s ease,
+        transform 1.2s var(--animation-easing);
+    transition-delay: 0.2s;
+}
+
+
+/* SKILLS 활성화 */
+.skills.is-inview .skills-heading,
+.skills.is-inview .skills-panel {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+
+/* 스킬 게이지 */
+.has-js .skill-level i {
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 1.2s var(--animation-easing);
+}
+
+.skills.is-inview .skill-list .skill-row:nth-child(1) .skill-level i {
+    transition-delay: 0.35s;
+}
+
+.skills.is-inview .skill-list .skill-row:nth-child(2) .skill-level i {
+    transition-delay: 0.45s;
+}
+
+.skills.is-inview .skill-list .skill-row:nth-child(3) .skill-level i {
+    transition-delay: 0.55s;
+}
+
+.skills.is-inview .skill-list .skill-row:nth-child(4) .skill-level i {
+    transition-delay: 0.65s;
+}
+
+.skills.is-inview .skill-list .skill-row:nth-child(5) .skill-level i {
+    transition-delay: 0.75s;
+}
+
+.skills.is-inview .skill-level i {
+    transform: scaleX(1);
+}
+
+
+/* HOW 항목 순차 등장 */
+.has-js .how-row {
+    opacity: 0;
+    transform: translateY(15px);
+    transition:
+        opacity 0.7s ease,
+        transform 0.8s var(--animation-easing);
+}
+
+.skills.is-inview .how-row {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.skills.is-inview .how-row:nth-of-type(1) {
+    transition-delay: 0.3s;
+}
+
+.skills.is-inview .how-row:nth-of-type(2) {
+    transition-delay: 0.4s;
+}
+
+.skills.is-inview .how-row:nth-of-type(3) {
+    transition-delay: 0.5s;
+}
+
+.skills.is-inview .how-row:nth-of-type(4) {
+    transition-delay: 0.6s;
+}
+
+.skills.is-inview .how-row:nth-of-type(5) {
+    transition-delay: 0.7s;
+}
+
+
+/* =========================================
+   04. PROJECTS
+   제목 등장 + 이미지 확대
+========================================= */
+
+.has-js .projects-heading {
+    opacity: 0;
+    transform: translateY(-25px);
+    transition:
+        opacity 0.9s ease,
+        transform 1s var(--animation-easing);
+}
+
+.has-js .projects-line {
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 1.3s var(--animation-easing);
+    transition-delay: 0.2s;
+}
+
+.has-js .project-image {
+    opacity: 0;
+    transform: translateY(30px) scale(0.97);
+    transition:
+        opacity 1s ease,
+        transform 1.2s var(--animation-easing);
+    transition-delay: 0.3s;
+}
+
+.has-js .project-info {
+    opacity: 0;
+    transform: translateX(25px);
+    transition:
+        opacity 1s ease,
+        transform 1s var(--animation-easing);
+    transition-delay: 0.5s;
+}
+
+
+/* PROJECTS 활성화 */
+.projects.is-inview .projects-heading {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.projects.is-inview .projects-line {
+    transform: scaleX(1);
+}
+
+.projects.is-inview .project-image {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+.projects.is-inview .project-info {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+
+/* 슬라이더 버튼 */
+.has-js .slider-button {
+    opacity: 0;
+    transition:
+        opacity 0.8s ease,
+        background 0.3s ease,
+        color 0.3s ease,
+        transform 0.3s ease;
+    transition-delay: 0.7s;
+}
+
+.projects.is-inview .slider-button {
+    opacity: 1;
+}
+
+
+/* =========================================
+   05. FOOTER
+   차분하게 아래에서 등장
+========================================= */
+
+.has-js .footer-main,
+.has-js .footer-bottom {
+    opacity: 0;
+    transform: translateY(20px);
+    transition:
+        opacity 0.9s ease,
+        transform 1s var(--animation-easing);
+}
+
+.has-js .footer-bottom {
+    transition-delay: 0.25s;
+}
+
+.footer.is-inview .footer-main,
+.footer.is-inview .footer-bottom {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* =========================================
+   MOBILE ANIMATION
+========================================= */
+
+@media screen and (max-width: 600px) {
+
+    .has-js .about .about-photo {
+        transform: translateY(25px);
+    }
+
+    .has-js .about .about-heading h2 {
+        transform: translateY(25px);
+    }
+
+    .has-js .about .about-profile,
+    .has-js .about .about-details {
+        transform: translateY(25px);
+    }
+
+    .about.is-inview .about-photo,
+    .about.is-inview .about-heading h2,
+    .about.is-inview .about-profile,
+    .about.is-inview .about-details {
+        transform: translateY(0);
+    }
+
+    .has-js .skills .skills-heading {
+        transform: translateY(25px);
+    }
+
+    .has-js .skills .skills-panel {
+        transform: translateY(35px);
+    }
+
+    .skills.is-inview .skills-heading,
+    .skills.is-inview .skills-panel {
+        transform: translateY(0);
+    }
+
+    .has-js .projects .project-image {
+        transform: translateY(25px) scale(0.97);
+    }
+
+    .projects.is-inview .project-image {
+        transform: translateY(0) scale(1);
+    }
+
+}
+
+
+/* =========================================
+   REDUCED MOTION
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .has-js .home *,
+    .has-js .about *,
+    .has-js .skills *,
+    .has-js .projects *,
+    .has-js .footer * {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+    }
+
+}
