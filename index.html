@@ -31,6 +31,45 @@
     <main>
         <!-- HOME -->
         <section class="section home" id="home">
+            <!-- CAMERA RECORDING UI -->
+            <div class="camera-ui" aria-hidden="true">
+
+                <!-- 화면 테두리 -->
+                <div class="camera-frame">
+                    <span class="frame-corner top-left"></span>
+                    <span class="frame-corner top-right"></span>
+                    <span class="frame-corner bottom-left"></span>
+                    <span class="frame-corner bottom-right"></span>
+                </div>
+
+                <!-- 녹화 상태 -->
+                <div class="camera-status">
+                    <span class="rec-dot"></span>
+                    <span>REC</span>
+                </div>
+
+                <!-- 카메라 정보 -->
+                <div class="camera-info">
+                    <span>CAM 01</span>
+                    <span>FHD  /  30 FPS</span>
+                </div>
+
+                <!-- 중앙 초점 표시 -->
+                <div class="camera-focus">
+                    <span></span>
+                </div>
+
+                <!-- 스캔 라인 -->
+                <div class="camera-scanline"></div>
+
+                <!-- 녹화 시간 -->
+                <div class="camera-time">
+                    <span>REC TIME</span>
+                    <strong id="recording-time">00:00:00</strong>
+                </div>
+
+            </div>
+
             <div class="home-top">
                 <p class="eyebrow">Web Developer &amp; Designer <br> PORTFOLIO · 2026</p>
             </div>

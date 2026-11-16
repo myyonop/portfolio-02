@@ -1,6 +1,6 @@
 // 01. Section Indicator
 
-const sections = document.querySelectorAll(".home, .about, .skills, .projects, .footer");
+const sections = document.querySelectorAll(".home, .about, .skills, .projects");
 
 const indicatorLinks = document.querySelectorAll(".indicator-link");
 
@@ -169,3 +169,39 @@ const animationObserver = new IntersectionObserver(
 animatedSections.forEach((section) => {
     animationObserver.observe(section);
 });
+
+
+/* =================================
+   HOME - RECORDING TIMER
+================================= */
+
+const recordingTime = document.querySelector("#recording-time");
+
+if (recordingTime) {
+    // 페이지가 새로 로드될 때마다 0부터 시작
+    const recordingStart = performance.now();
+
+    function updateRecordingTime() {
+        const elapsed = Math.floor(
+            (performance.now() - recordingStart) / 1000
+        );
+
+        const hours = String(
+            Math.floor(elapsed / 3600)
+        ).padStart(2, "0");
+
+        const minutes = String(
+            Math.floor((elapsed % 3600) / 60)
+        ).padStart(2, "0");
+
+        const seconds = String(
+            elapsed % 60
+        ).padStart(2, "0");
+
+        recordingTime.textContent =
+            `${hours}:${minutes}:${seconds}`;
+    }
+
+    updateRecordingTime();
+    setInterval(updateRecordingTime, 1000);
+}
